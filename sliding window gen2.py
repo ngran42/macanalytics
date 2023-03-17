@@ -14,7 +14,7 @@ from fbprophet import Prophet
 
 # COMMAND ----------
 
-df = spark.read.format ("csv").load("dbfs:/mnt/customer-analytics/demand_sales1_prophet.csv", header=True)
+df = spark.read.format ("csv").load("dbfs:/mnt/analytics/sales.csv", header=True) #upload dataset 
 
 # COMMAND ----------
 
