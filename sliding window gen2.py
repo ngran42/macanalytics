@@ -171,7 +171,7 @@ display(spark.createDataFrame(forecast))
 # COMMAND ----------
 
 #export forecast dataframe to csv
-spark.createDataFrame(forecast).coalesce(1).write.format('csv').save('dbfs:/mnt/customer-analytics/NGrannum/forecast.csv')
+spark.createDataFrame(forecast).coalesce(1).write.format('csv').save('dbfs:/mnt/analytics/forecast.csv')
 
 # COMMAND ----------
 
@@ -237,42 +237,6 @@ results_df
 
 # COMMAND ----------
 
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
 m= Prophet(
     changepoint_prior_scale=5,
     changepoint_range=0.8,
@@ -291,26 +255,6 @@ future = m.make_future_dataframe(periods=180)
 forecast = m.predict(future)
 fig21 = m.plot(forecast)
 fig22 = m.plot_components(forecast)
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
 
 # COMMAND ----------
 
@@ -351,11 +295,4 @@ extract_coefs(models).plot(title='Coefficients for Expanding Window Model')
 
 # COMMAND ----------
 
-
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
 
